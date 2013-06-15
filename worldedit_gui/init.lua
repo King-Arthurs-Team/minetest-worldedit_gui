@@ -27,7 +27,7 @@ worldedit_gui.get_formspec = function(player,page)
 	-- worldedit_gui
 	if page == "worldedit_gui" then
 		formspec = formspec
-			.."size[8,6.5]"
+			.."size[8,7.5]"
 			.."button[0,0;2,0.5;main;Back]"
 
 			.."button_exit[0,1;2,0.5;worldedit_gui_p_set;Set Pos]"
@@ -446,8 +446,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	
 	-- p_set
 	if fields.worldedit_gui_p_set then
-		worldedit.set_pos[name] = 1
-		minetest.chat_send_player(name, "Select positions by punching two nodes")
+		worldedit.set_pos[name] = "pos1"
+		worldedit.player_notify(name, "select positions by punching two nodes")
 		page = "worldedit_gui"
 	end
 	
